@@ -23,13 +23,13 @@ function Products() {
     },
   });
 
-  if (status === "isLoading") return "Loading...";
+  if (status === "loading") return "Loading...";
   if (status === "error") return "An error has occurred: " + error.message;
 
   return (
     <div>
       <Grid templateColumns="repeat(3, 1fr)" gap={4}>
-        {data &&
+        {
           data.pages.map((group, i) => (
             <React.Fragment key={i}>
               {group.map((item) => (
@@ -50,8 +50,8 @@ function Products() {
           {isFetchingNextPage
             ? "Loading more..."
             : hasNextPage
-            ? "Load More"
-            : "Nothing more to load"}
+              ? "Load More"
+              : "Nothing more to load"}
         </Button>
       </Flex>
     </div>
