@@ -23,13 +23,16 @@ const BasketProvider = ({ children }) => {
     const removeFromBasket = (item_id) => {
         const filtered = items.filter((item) => item._id !== item_id)
         setItems(filtered)
-    }
+    };
+
+    const emptyBasket = () => setItems([]);
 
     const values = {
         items,
         setItems,
         addToBasket,
         removeFromBasket,
+        emptyBasket
     };
 
     return (
